@@ -96,14 +96,14 @@ while cap.isOpened():
             if current_sequence in MORSE_CODE_DICT:
                 letter = MORSE_CODE_DICT[current_sequence]
                 decoded_message += letter
-                print(f"✅ Letter decoded: {letter}")
+                print(f" Letter decoded: {letter}")
             else:
-                print("❌ Invalid Morse sequence")
+                print(" Invalid Morse sequence")
             current_sequence = ""
 
         if decoded_message and (current_time - last_blink_time) > WORD_BREAK:
             decoded_message += " "
-            print("🟩 Space added (word break)")
+            print("Space added (word break)")
 
     # Show live feed with decoded message
     cv2.putText(frame, f"Message: {decoded_message}", (30, 50),
@@ -116,10 +116,11 @@ while cap.isOpened():
 cap.release()
 cv2.destroyAllWindows()
 
-print("\n✅ Final Decoded Message:", decoded_message)
+print("\n Final Decoded Message:", decoded_message)
 
 # Save to file
 with open("decoded_message.txt", "w") as f:
     f.write(decoded_message)
 
-print("📂 Message saved to decoded_message.txt")
+print(" Message saved to decoded_message.txt")
+
